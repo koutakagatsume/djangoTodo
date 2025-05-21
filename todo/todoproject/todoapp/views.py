@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
 
@@ -25,4 +25,15 @@ class TaskCreate(CreateView):
     success_url = reverse_lazy('task_list')
 
 # タスク更新
+class TaskUpdate(UpdateView):
+    model = Task
+    fields = "__all__"
+    success_url = reverse_lazy('task_list')
+
+# タスク削除
+class TaskDelete(DeleteView):
+    model = Task
+    fields = "__all__"
+    success_url = reverse_lazy('task_list')
+    context_object_name = 'task'
 

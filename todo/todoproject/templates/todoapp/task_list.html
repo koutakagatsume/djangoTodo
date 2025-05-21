@@ -1,12 +1,16 @@
 <h1>Todo List</h1>
+<a href="{% url 'task_create' %}">新規作成</a>
 <table>
   <tr>
     <th>Title</th>
+
   </tr>
   {% for task in tasks %}
   <tr>
     <td>{{ task.title }}</td>
     <td><a href="{% url 'task_detail' task.id %}">確認</a></td>
+    <td><a href="{% url 'task_update' task.id %}">更新</a></td>
+    <td><a href="{% url 'task_delete' task.id %}">削除</a></td>
   </tr>
   {% endfor %}
 </table>

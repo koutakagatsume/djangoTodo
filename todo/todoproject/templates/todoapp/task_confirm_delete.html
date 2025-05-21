@@ -1,0 +1,7 @@
+<h1>{{ task }} タスクを削除しますか？</h1>
+<a href="{% url 'task_list' %}">一覧に戻る</a>
+<p>タスク：{{ task.title }}</p>
+<form method="post">
+  {% csrf_token %}
+  <input type="submit" value="削除" />
+</form>
